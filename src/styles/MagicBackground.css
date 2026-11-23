@@ -1,0 +1,70 @@
+.magic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% -10%, #16161f 0%, transparent 60%),
+    linear-gradient(180deg, #0a0a0d 0%, #060608 100%);
+}
+
+.magic-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+/* Soft aurora glows that drift and move at different scroll speeds */
+.aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.16;
+  will-change: transform;
+}
+
+.aurora--1 {
+  width: 55vmax;
+  height: 40vmax;
+  left: -15vmax;
+  top: 10vh;
+  background: radial-gradient(circle, rgba(64, 120, 255, 0.55), transparent 70%);
+  transform: translate3d(0, calc(var(--scroll, 0) * -0.08px), 0);
+  animation: aurora-drift-1 22s ease-in-out infinite alternate;
+}
+
+.aurora--2 {
+  width: 50vmax;
+  height: 45vmax;
+  right: -18vmax;
+  top: 45vh;
+  background: radial-gradient(circle, rgba(150, 95, 255, 0.5), transparent 70%);
+  transform: translate3d(0, calc(var(--scroll, 0) * -0.14px), 0);
+  animation: aurora-drift-2 26s ease-in-out infinite alternate;
+}
+
+.aurora--3 {
+  width: 40vmax;
+  height: 30vmax;
+  left: 30vw;
+  top: 120vh;
+  background: radial-gradient(circle, rgba(90, 170, 255, 0.4), transparent 70%);
+  transform: translate3d(0, calc(var(--scroll, 0) * -0.2px), 0);
+  animation: aurora-drift-1 30s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes aurora-drift-1 {
+  from { translate: 0 0; scale: 1; }
+  to { translate: 8vw 6vh; scale: 1.15; }
+}
+
+@keyframes aurora-drift-2 {
+  from { translate: 0 0; scale: 1.1; }
+  to { translate: -10vw -4vh; scale: 0.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
+  }
+}

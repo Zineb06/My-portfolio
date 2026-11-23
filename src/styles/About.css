@@ -1,0 +1,187 @@
+#about {
+  padding: 80px 0;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.about-description ul {
+  padding-top: 20px;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+}
+
+@media only screen and (max-width: 480px) {
+  .about-description ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-description li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 18px;
+  color: var(--slate);
+}
+
+.about-description li::before {
+  content: "✦";
+  font-size: 12px;
+  top: 4px;
+  color: var(--violet);
+  position: absolute;
+  left: 0;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.about-description {
+  font-family: "NTR", sans-serif;
+  color: var(--slate);
+  max-width: 600px;
+  font-size: 22px;
+  text-align: justify;
+  margin: 0;
+}
+
+.about-description a,
+.about-description b {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+/* ---------- Photo with a rotating magic ring ---------- */
+@property --ring-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.about-image {
+  padding-left: 70px;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+.about-photo-parallax {
+  position: relative;
+  will-change: transform;
+}
+
+.about-photo-frame {
+  --ring-angle: 0deg;
+  position: relative;
+  width: 280px;
+  aspect-ratio: 4 / 5;
+  padding: 3px;
+  border-radius: 22px;
+  background: conic-gradient(from var(--ring-angle), var(--blue), var(--violet), rgba(122, 184, 255, 0.1), var(--violet), var(--blue));
+  box-shadow: 0 0 40px rgba(122, 184, 255, 0.25), 0 0 80px rgba(177, 140, 255, 0.18);
+  animation: ring-spin 8s linear infinite;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.about-photo-frame:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 0 0 50px rgba(122, 184, 255, 0.4), 0 0 100px rgba(177, 140, 255, 0.3);
+}
+
+.about-photo-clip {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 19px;
+}
+
+.about-photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* the photo has a lot of empty space around; zoom in to frame the face */
+  object-position: 50% 50%;
+  transform: scale(1.5);
+  transform-origin: 50% 48%;
+  border-radius: 19px;
+  filter: saturate(0.95) contrast(1.03);
+}
+
+/* soft blue/violet tint over the photo to blend it with the night palette */
+.about-photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 19px;
+  pointer-events: none;
+  background: linear-gradient(160deg, rgba(122, 184, 255, 0.12), transparent 40%, rgba(177, 140, 255, 0.22));
+  mix-blend-mode: soft-light;
+}
+
+@keyframes ring-spin {
+  to { --ring-angle: 360deg; }
+}
+
+.about-sparkle {
+  position: absolute;
+  color: var(--violet);
+  text-shadow: 0 0 10px currentColor;
+  pointer-events: none;
+  animation: sparkle-float 4s ease-in-out infinite;
+}
+
+.about-sparkle--1 { top: -14px; right: -12px; font-size: 22px; }
+.about-sparkle--2 { bottom: 30px; left: -22px; font-size: 18px; color: var(--blue); animation-delay: 1.3s; }
+.about-sparkle--3 { top: 45%; right: -26px; font-size: 12px; animation-delay: 2.4s; }
+
+@keyframes sparkle-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-10px) scale(0.7); opacity: 0.4; }
+}
+
+@media only screen and (max-width: 860px) {
+  .about-image {
+    padding-left: 40px;
+  }
+  .about-photo-frame {
+    width: 210px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  #about {
+    padding: 60px 0;
+  }
+
+  .about-content {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .about-image {
+    padding: 0 0 36px;
+  }
+
+  .about-photo-frame {
+    width: 200px;
+  }
+
+  .about-description {
+    font-size: 18px;
+  }
+
+  .about-description a,
+  .about-description b {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-photo-frame,
+  .about-sparkle {
+    animation: none;
+  }
+}
