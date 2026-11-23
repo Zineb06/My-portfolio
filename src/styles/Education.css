@@ -1,0 +1,121 @@
+#education {
+  padding: 80px 0;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.edu-timeline {
+  position: relative;
+  margin-bottom: 48px;
+  padding-left: 28px;
+  border-left: 2px solid var(--lightest-navy);
+}
+
+.edu-item {
+  position: relative;
+  padding-bottom: 28px;
+  font-family: "NTR", sans-serif;
+}
+
+.edu-item:last-child {
+  padding-bottom: 0;
+}
+
+.edu-item::before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 12px rgba(205, 180, 255, 0.6);
+}
+
+.edu-years {
+  color: var(--blue);
+  font-size: 16px;
+}
+
+.edu-title {
+  color: var(--lightest-slate);
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.edu-school {
+  color: var(--slate);
+  font-size: 18px;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.edu-card {
+  background: var(--light-navy);
+  border: 1px solid var(--lightest-navy);
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  font-family: "NTR", sans-serif;
+}
+
+.edu-card-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--violet);
+  margin-bottom: 12px;
+}
+
+.edu-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edu-card li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--lightest-navy);
+}
+
+.edu-card li:last-child {
+  border-bottom: none;
+}
+
+.edu-card-main {
+  color: var(--lightest-slate);
+  font-size: 18px;
+}
+
+.edu-card-sub {
+  color: var(--slate);
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 700px) {
+  #education {
+    padding: 60px 0;
+  }
+
+  .edu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edu-title {
+    font-size: 20px;
+  }
+
+  .edu-card li {
+    flex-direction: column;
+    gap: 0;
+  }
+}

@@ -1,0 +1,46 @@
+.navbar {
+    background-color: rgba(10, 10, 13, 0.75) !important;
+    color: var(--lightest-slate) !important;
+    font-family: 'NTR';
+    font-weight: bold;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .navbar-brand {
+    color: var(--lightest-slate) !important;
+  }
+
+  .navbar-brand:hover {
+    color: var(--blue) !important;
+  }
+
+  .nav-link {
+    color: var(--lightest-slate) !important;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--blue) !important;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .navbar-brand  {
+        display: none;
+    }
+  
+    .nav-link {
+        display: block;
+        padding: 12px 0;
+      }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    .nav-link:focus, .nav-link:active, .nav-link:hover {
+        color: var(--blue) !important;
+    }
+  }

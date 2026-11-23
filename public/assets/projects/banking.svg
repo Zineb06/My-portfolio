@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 790 450" width="790" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1430"/><stop offset="1" stop-color="#120f33"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7ab8ff"/><stop offset="1" stop-color="#b18cff"/>
+    </linearGradient>
+    <linearGradient id="accFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b18cff" stop-opacity="0.35"/><stop offset="1" stop-color="#7ab8ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="accFade2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b5fb8"/><stop offset="1" stop-color="#6b4fc4"/>
+    </linearGradient>
+  </defs>
+  <rect width="790" height="450" fill="url(#bg)"/>
+  <rect x="0" y="0" width="790" height="44" fill="#081128"/>
+  <circle cx="24" cy="22" r="6" fill="#ff7a90"/><circle cx="44" cy="22" r="6" fill="#ffd27a"/><circle cx="64" cy="22" r="6" fill="#7ae0b0"/>
+  <rect x="240" y="12" width="310" height="20" rx="10" fill="#0e1a36"/>
+  
+    <rect x="40" y="70" width="150" height="350" rx="10" fill="#0e1a36"/>
+    <rect x="58" y="95" width="90" height="12" rx="6" fill="#1d2c52"/><rect x="58" y="129" width="114" height="12" rx="6" fill="url(#acc)"/><rect x="58" y="163" width="90" height="12" rx="6" fill="#1d2c52"/><rect x="58" y="197" width="114" height="12" rx="6" fill="#1d2c52"/><rect x="58" y="231" width="90" height="12" rx="6" fill="#1d2c52"/>
+    <rect x="210" y="70" width="170" height="90" rx="10" fill="#0e1a36"/><rect x="228" y="92" width="60" height="10" rx="5" fill="#2a3b66"/><rect x="228" y="115" width="100" height="22" rx="6" fill="#7ab8ff" opacity="0.85"/><rect x="395" y="70" width="170" height="90" rx="10" fill="#0e1a36"/><rect x="413" y="92" width="60" height="10" rx="5" fill="#2a3b66"/><rect x="413" y="115" width="100" height="22" rx="6" fill="#b18cff" opacity="0.85"/><rect x="580" y="70" width="170" height="90" rx="10" fill="#0e1a36"/><rect x="598" y="92" width="60" height="10" rx="5" fill="#2a3b66"/><rect x="598" y="115" width="100" height="22" rx="6" fill="#5b78c4" opacity="0.85"/>
+    <rect x="210" y="178" width="540" height="242" rx="10" fill="#0e1a36"/>
+    <polyline points="235,380 300,330 360,350 420,280 490,300 560,230 630,260 720,205" fill="none" stroke="url(#acc)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <polygon points="235,380 300,330 360,350 420,280 490,300 560,230 630,260 720,205 720,400 235,400" fill="url(#accFade)"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="end">
+    <text x="760" y="27" font-size="13" fill="#8d9cc2">Banking System · sample screenshot</text>
+  </g>
+</svg>

@@ -1,0 +1,79 @@
+:root {
+  /* Dark base: near-black / dark grey */
+  --dark-navy: #050507;
+  --navy: #0a0a0d;
+  --light-navy: #15151a;
+  --lightest-navy: #2a2a33;
+  --navy-shadow: rgba(0, 0, 0, 0.7);
+  --glass: rgba(22, 22, 28, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* Text: brighter for contrast on the dark base */
+  --slate: #b4b8c8;
+  --light-slate: #cfd2de;
+  --lightest-slate: #f0f1f6;
+  --white: #ffffff;
+
+  /* Accents: blue + violet */
+  --blue: #7ab8ff;
+  --blue-tint: rgba(122, 184, 255, 0.1);
+  --violet: #b18cff;
+  --violet-tint: rgba(177, 140, 255, 0.12);
+  --accent-gradient: linear-gradient(90deg, var(--blue), var(--violet));
+}
+
+::selection {
+  background: rgba(177, 140, 255, 0.35);
+  color: var(--white);
+}
+
+/* ---------- Magical touches ---------- */
+
+/* Shimmering gradient section titles */
+.section-title {
+  background: linear-gradient(90deg, var(--lightest-slate) 0%, var(--lightest-slate) 35%, var(--blue) 50%, var(--violet) 60%, var(--lightest-slate) 75%, var(--lightest-slate) 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: title-shimmer 7s ease-in-out infinite;
+}
+
+@keyframes title-shimmer {
+  0%, 100% { background-position: 100% 0; }
+  50% { background-position: 0% 0; }
+}
+
+.section-header::after {
+  background: linear-gradient(90deg, rgba(122, 184, 255, 0.5), rgba(177, 140, 255, 0.15), transparent) !important;
+}
+
+/* Glass card with a cursor-following glow (set --mx/--my from JS) */
+.glow-card {
+  position: relative;
+  background: var(--glass) !important;
+  border: 1px solid var(--glass-border) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.glow-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(177, 140, 255, 0.16), rgba(122, 184, 255, 0.06) 40%, transparent 65%);
+}
+
+.glow-card:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-title {
+    animation: none;
+  }
+}
