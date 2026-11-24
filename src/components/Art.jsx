@@ -12,9 +12,6 @@ const topArt = [
   { src: `${import.meta.env.BASE_URL}assets/art/grimace.jpg`, title: "grimace" },
 ];
 
-// Each column floats at a slightly different speed while scrolling
-const SPEEDS = ["0.04", "-0.06", "0.08"];
-
 const Art = () => {
   return (
     <div id="art">
@@ -34,7 +31,7 @@ const Art = () => {
         <div className="art-grid">
           {topArt.map((art, i) => (
             <FadeInSection key={i} delay={(i + 1) * 100 + "ms"}>
-              <div data-speed={SPEEDS[i % 3]}>
+              <div>
                 <div className="art-card">
                   <img src={art.src} alt={art.title} className="art-image" loading="lazy" />
                 </div>

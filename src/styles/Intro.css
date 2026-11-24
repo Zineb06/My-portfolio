@@ -18,23 +18,6 @@
   flex: 1 1 50%;
   max-width: 640px;
   min-width: 0;
-  /* parallax: flowers sink slowly and fade as you scroll (--scroll set in MagicBackground) */
-  transform: translate3d(0, calc(var(--scroll, 0) * 0.3px), 0);
-  opacity: max(0, calc(1 - var(--scroll, 0) / 900));
-  will-change: transform;
-}
-
-.intro-block {
-  transform: translate3d(0, calc(var(--scroll, 0) * -0.12px), 0);
-  opacity: max(0, calc(1 - var(--scroll, 0) / 650));
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .intro-simulation,
-  .intro-block {
-    transform: none;
-    opacity: 1;
-  }
 }
 
 .intro-block {

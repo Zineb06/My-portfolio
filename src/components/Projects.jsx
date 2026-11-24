@@ -134,7 +134,7 @@ const Projects = () => {
                   <li className="project-slide" key={p.title} aria-hidden={!inView}>
                     <div className="projects-card glow-card">
                       <div className="card-image">
-                        <img src={p.image} alt={`${p.title} screenshot`} data-speed="0.06" />
+                        <img src={p.image} alt={`${p.title} screenshot`} />
                       </div>
                       <div className="card-body">
                         <div className="card-header">
