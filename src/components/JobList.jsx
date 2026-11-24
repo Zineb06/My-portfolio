@@ -69,7 +69,7 @@ const JobList = () => {
     },
     "TIAD Lab": {
       jobTitle: "Machine Learning Research Intern @",
-      duration: "JAN 2024 - JUL 2024 · BÉNI MELLAL, MOROCCO",
+      duration: "JAN 2024 - JUL 2024 · BENI MELLAL, MOROCCO",
       desc: [
         "Implemented a bilevel optimization approach based on gradient descent aggregation (BDA) for skin cancer classification.",
         "Conducted under the supervision of Prof. Mourad Nachaoui.",
