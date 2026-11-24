@@ -25,6 +25,6 @@
     <polyline points="235,380 300,330 360,350 420,280 490,300 560,230 630,260 720,205" fill="none" stroke="url(#acc)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     <polygon points="235,380 300,330 360,350 420,280 490,300 560,230 630,260 720,205 720,400 235,400" fill="url(#accFade)"/>
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="end">
-    <text x="760" y="27" font-size="13" fill="#8d9cc2">Housing Comparison · sample screenshot</text>
+    <text x="760" y="27" font-size="13" fill="#8d9cc2">Restaurant Reservations · sample screenshot</text>
   </g>
 </svg>

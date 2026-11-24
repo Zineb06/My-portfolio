@@ -27,9 +27,10 @@ const Intro = () => {
         </div>
         <FadeInSection>
           <div className="intro-desc">
-            Fullstack software engineer based in Lille, France. I build web
+            I'm  a Fullstack software engineer based in France. I build web
             applications end to end and love bringing AI into them, from LLM
-            agents and RAG pipelines to machine learning research.
+            agents and RAG pipelines to machine learning. I love art and creativity, and the
+            intersection between tech and art is my passion.
           </div>
           <a href="mailto:houmaidi.zineb@gmail.com" className="intro-contact">
             <EmailRoundedIcon />

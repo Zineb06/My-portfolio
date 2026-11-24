@@ -6,12 +6,12 @@ const About = () => {
 
   const one = (
     <p>
-      I am a <b>Fullstack Software Engineer</b> with a Master's in MIAGE
-      (Software Engineering for the Web) from{" "}
+      I am a <b>Fullstack Software Engineer</b> with a Master's Degree in MIAGE
+      Software Engineering from{" "}
       <a href="https://www.univ-evry.fr/" target="_blank" rel="noopener noreferrer">
-        Université Paris-Saclay
+        Université Paris Saclay
       </a>{" "}
-      and a research Master's in Business Intelligence. Most recently I was at{" "}
+      and a research Master's in Business Intelligence (Informatique Décisionnelle). Most recently I was an intern at{" "}
       <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer">
         Capgemini
       </a>
@@ -21,9 +21,9 @@ const About = () => {
   );
   const two = (
     <p>
-      I combine fullstack expertise with a strong AI background (LLMs, RAG,
-      fine-tuning). Trilingual in French, English and Arabic. Outside of code
-      you'll find me volunteering, climbing, reading or drawing.
+      I combine fullstack skills with a background in machine learning and AI (LLMs, RAG,
+      fine-tuning..etc). Trilingual in French, English and Arabic. Outside of code
+      you'll find me volunteering, drawing, Rock climbing, or reading.
     </p>
   );
 
@@ -33,7 +33,6 @@ const About = () => {
     "TypeScript · Angular",
     "React.js",
     "LLMs · RAG · Fine-tuning",
-    "PostgreSQL · MongoDB",
     "Docker · GitLab CI/CD",
     "Microservices · Kafka",
   ];
@@ -61,7 +60,7 @@ const About = () => {
             <div className="about-photo-parallax" data-speed="-0.08">
               <div className="about-photo-frame">
                 <div className="about-photo-clip">
-                  <img alt="Zineb Houmaidi" src="/assets/zineb.jpg" />
+                  <img alt="Zineb Houmaidi" src={`${import.meta.env.BASE_URL}assets/zineb.jpg`} />
                 </div>
               </div>
               <span className="about-sparkle about-sparkle--1">✦</span>
