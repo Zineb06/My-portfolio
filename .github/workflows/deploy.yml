@@ -1,10 +1,10 @@
 # Build the Vite app and deploy it to GitHub Pages
-# One-time setup: repo Settings → Pages → Build and deployment → Source: "GitHub Actions"
+# The site is hosted on Vercel, so this only runs when triggered manually
+# (Actions tab → Run workflow). To use it, first enable Pages:
+# repo Settings → Pages → Build and deployment → Source: "GitHub Actions"
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 permissions:

@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Served from https://zineb06.github.io/My-portfolio/ on GitHub Pages
-  base: '/My-portfolio/',
+  // Vercel/Netlify serve the site at the domain root. The GitHub Pages
+  // workflow sets GITHUB_ACTIONS, where the site lives under /My-portfolio/.
+  base: process.env.GITHUB_ACTIONS ? '/My-portfolio/' : '/',
   plugins: [react()],
   server: {
     host: true,
