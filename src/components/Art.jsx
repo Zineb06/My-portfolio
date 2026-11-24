@@ -24,7 +24,7 @@ const Art = () => {
       <FadeInSection delay="200ms">
         <div className="art-description">
           Drawing is how I unwind. A few pieces from my sketchbook, in
-          different styles and mediums.
+          different styles.
         </div>
       </FadeInSection>
       <div className="art-container">
