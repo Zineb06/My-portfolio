@@ -57,7 +57,7 @@ const About = () => {
             {two}
           </div>
           <div className="about-image">
-            <div className="about-photo-parallax" data-speed="-0.08">
+            <div className="about-photo-parallax">
               <div className="about-photo-frame">
                 <div className="about-photo-clip">
                   <img alt="Zineb Houmaidi" src={`${import.meta.env.BASE_URL}assets/zineb.jpg`} />

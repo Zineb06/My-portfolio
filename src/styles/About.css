@@ -69,7 +69,6 @@
 
 .about-photo-parallax {
   position: relative;
-  will-change: transform;
 }
 
 .about-photo-frame {

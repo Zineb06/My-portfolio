@@ -3,11 +3,11 @@ import "../styles/MagicBackground.css";
 
 /*
   Site-wide "magic" layer:
-  - starfield in 3 depth layers that parallax with scroll + twinkle
+  - twinkling starfield
   - glowing blue / violet fireflies drifting around
   - an occasional shooting star
-  - aurora blobs (CSS) that drift with scroll
-  - drives [data-speed] parallax elements and the cursor glow on .glow-card
+  - slowly drifting aurora blobs (CSS)
+  - the cursor glow on .glow-card
 */
 
 const COLORS = ["122, 184, 255", "177, 140, 255", "214, 226, 255"];
@@ -20,7 +20,6 @@ const MagicBackground = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const root = document.documentElement;
 
     let w = 0;
     let h = 0;
@@ -30,7 +29,6 @@ const MagicBackground = () => {
     let shooting = null;
     let nextShoot = performance.now() + rand(3000, 7000);
     let raf = 0;
-    let scrollY = window.scrollY;
 
     const build = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -73,7 +71,7 @@ const MagicBackground = () => {
     const wrap = (v, max) => ((v % max) + max) % max;
 
     const drawStar = (s, t) => {
-      const y = wrap(s.y - scrollY * s.depth, h);
+      const y = s.y;
       const tw = reduced ? 0.8 : 0.55 + 0.45 * Math.sin(t * 0.001 * s.speed + s.phase);
       ctx.beginPath();
       ctx.fillStyle = `rgba(${s.color}, ${tw})`;
@@ -98,7 +96,7 @@ const MagicBackground = () => {
         f.y += f.vy;
       }
       const x = wrap(f.x, w);
-      const y = wrap(f.y - scrollY * f.depth, h + 40) - 20;
+      const y = wrap(f.y, h + 40) - 20;
       const pulse = 0.45 + 0.55 * Math.abs(Math.sin(t * 0.0012 + f.phase));
       const g = ctx.createRadialGradient(x, y, 0, x, y, f.r * 7);
       g.addColorStop(0, `rgba(${f.color}, ${0.9 * pulse})`);
@@ -144,31 +142,12 @@ const MagicBackground = () => {
       }
     };
 
-    // Parallax for any element with data-speed (e.g. data-speed="0.15")
-    const applyParallax = () => {
-      root.style.setProperty("--scroll", String(scrollY));
-      if (reduced) return;
-      const vh = window.innerHeight;
-      document.querySelectorAll("[data-speed]").forEach((el) => {
-        const rect = el.parentElement.getBoundingClientRect();
-        if (rect.bottom < -200 || rect.top > vh + 200) return;
-        const speed = parseFloat(el.dataset.speed) || 0;
-        const offset = (rect.top + rect.height / 2 - vh / 2) * speed;
-        el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
-      });
-    };
-
     const frame = (t) => {
       ctx.clearRect(0, 0, w, h);
       stars.forEach((s) => drawStar(s, t));
       flies.forEach((f) => drawFly(f, t));
       if (!reduced) drawShooting(t);
       raf = requestAnimationFrame(frame);
-    };
-
-    const onScroll = () => {
-      scrollY = window.scrollY;
-      applyParallax();
     };
 
     // Cursor-following glow on glass cards
@@ -181,19 +160,13 @@ const MagicBackground = () => {
     };
 
     build();
-    applyParallax();
     raf = requestAnimationFrame(frame);
     window.addEventListener("resize", build);
-    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("pointermove", onPointerMove, { passive: true });
-    // re-run parallax once lazy content (images) has laid out
-    const settle = setTimeout(applyParallax, 600);
 
     return () => {
       cancelAnimationFrame(raf);
-      clearTimeout(settle);
       window.removeEventListener("resize", build);
-      window.removeEventListener("scroll", onScroll);
       window.removeEventListener("pointermove", onPointerMove);
     };
   }, []);

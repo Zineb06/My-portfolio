@@ -71,10 +71,6 @@
   transform: scale(1.05);
 }
 
-.art-grid [data-speed] {
-  will-change: transform;
-}
-
 #art .section-header {
   align-items: center;
   justify-content: space-between;
