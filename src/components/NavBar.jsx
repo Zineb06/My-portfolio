@@ -36,16 +36,16 @@ const NavBar = () => {
       onToggle={(isExpanded) => setExpanded(isExpanded)}
     >
       <Container>
-        <Navbar.Brand href="/">Zineb Houmaidi</Navbar.Brand>
+        <Navbar.Brand href={`${import.meta.env.BASE_URL}`}>Zineb Houmaidi</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" onSelect={() => setExpanded(false)}>
-            <Nav.Link href="/#intro">Home</Nav.Link>
-            <Nav.Link href="/#about">About</Nav.Link>
-            <Nav.Link href="/#experience">Experience</Nav.Link>
-            <Nav.Link href="/#projects">Projects</Nav.Link>
-            <Nav.Link href="/#education">Education</Nav.Link>
-            <Nav.Link href="/#art">Art</Nav.Link>
+            <Nav.Link href={`${import.meta.env.BASE_URL}#intro`}>Home</Nav.Link>
+            <Nav.Link href={`${import.meta.env.BASE_URL}#about`}>About</Nav.Link>
+            <Nav.Link href={`${import.meta.env.BASE_URL}#experience`}>Experience</Nav.Link>
+            <Nav.Link href={`${import.meta.env.BASE_URL}#projects`}>Projects</Nav.Link>
+            <Nav.Link href={`${import.meta.env.BASE_URL}#education`}>Education</Nav.Link>
+            <Nav.Link href={`${import.meta.env.BASE_URL}#art`}>Art</Nav.Link>
           </Nav>
           <Nav className="ms-auto" onSelect={() => setExpanded(false)}>
             <Nav.Link href="mailto:houmaidi.zineb@gmail.com">

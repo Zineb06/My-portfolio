@@ -5,25 +5,16 @@ import { Link } from "react-router-dom";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
 const ArtGallery = () => {
-  // Replace these with your own artwork (put the files in public/assets/art/)
   const allArt = [
-    { src: "/assets/art/11th_grade.jpg", title: "11th grade" },
-    { src: "/assets/art/anatomy.jpg", title: "anatomy" },
-    { src: "/assets/art/animal.jpg", title: "animal" },
-    { src: "/assets/art/cordyceps.jpg", title: "cordyceps" },
-    { src: "/assets/art/dali.jpg", title: "dali" },
-    { src: "/assets/art/dna.jpg", title: "dna" },
-    { src: "/assets/art/elephant.jpg", title: "elephant" },
-    { src: "/assets/art/fetus.jpg", title: "fetus" },
-    { src: "/assets/art/fishy.jpg", title: "fish" },
-    { src: "/assets/art/hands.jpg", title: "hands" },
-    { src: "/assets/art/japan.jpg", title: "japan" },
-    { src: "/assets/art/monolith.jpg", title: "monolith" },
-    { src: "/assets/art/narcissus.jpg", title: "narcissus" },
-    { src: "/assets/art/recursion.jpg", title: "recursion" },
-    { src: "/assets/art/sachiel.jpg", title: "sachiel" },
-    { src: "/assets/art/shoelaces.jpg", title: "shoelaces" },
-    { src: "/assets/art/space.jpg", title: "space" }
+    { src: `${import.meta.env.BASE_URL}assets/art/sisters.jpg`, title: "sisters" },
+    { src: `${import.meta.env.BASE_URL}assets/art/wild-hair.jpg`, title: "wild hair" },
+    { src: `${import.meta.env.BASE_URL}assets/art/candlelight.jpg`, title: "candlelight" },
+    { src: `${import.meta.env.BASE_URL}assets/art/laugh.jpg`, title: "laugh" },
+    { src: `${import.meta.env.BASE_URL}assets/art/cat-butterflies.jpg`, title: "cat and butterflies" },
+    { src: `${import.meta.env.BASE_URL}assets/art/grimace.jpg`, title: "grimace" },
+    { src: `${import.meta.env.BASE_URL}assets/art/pout.jpg`, title: "pout" },
+    { src: `${import.meta.env.BASE_URL}assets/art/candle-skull.jpg`, title: "candle skull" },
+    { src: `${import.meta.env.BASE_URL}assets/art/ballerinas.jpg`, title: "ballerinas" }
   ];
 
   return (

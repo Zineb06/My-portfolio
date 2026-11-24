@@ -3,7 +3,7 @@ import "../styles/Projects.css";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import FadeInSection from "./FadeInSection";
-import ExternalLinks from "./ExternalLinks";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const projects = [
   {
@@ -11,48 +11,37 @@ const projects = [
     meta: "Personal project · Nov 2026",
     desc: "Production-grade banking transaction web app with real-time fraud detection, built as Java microservices.",
     tech: ["Java", "Spring Boot", "Kafka", "Redis", "SAGA"],
+    link: "https://github.com/Zineb06/Banking-System-With-Fraud-Detection-Java-Microservices",
     // sample image: replace with a screenshot of the project UI
-    image: "/assets/projects/banking.svg",
+    image: `${import.meta.env.BASE_URL}assets/projects/banking.svg`,
   },
   {
-    title: "Virtual Try-On AI Assistant",
-    meta: "Capgemini · 2026",
-    desc: "Conversational AI agent orchestrating speech recognition, gesture recognition, recommendations and virtual clothing try-on.",
-    tech: ["Python", "React.js", "LLM agents", "Tool calling"],
+    title: "Ride Booking Platform",
+    meta: "In progress · 2026",
+    desc: "Platform for booking rides on demand: riders request a trip, get matched with a nearby driver and follow it end to end.",
+    tech: ["Java", "Spring Boot"],
+    // add the GitHub URL here once the repo is public
+    link: "",
     // sample image: replace with a screenshot of the project UI
-    image: "/assets/projects/tryon.svg",
+    image: `${import.meta.env.BASE_URL}assets/projects/car.svg`,
   },
   {
-    title: "Meet and Go",
-    meta: "Team project · Oct 2024 - Jan 2025",
-    desc: "Web app for cultural outings between locals, with visitor, user, admin and moderator roles, outings and comments.",
-    tech: ["ASP.NET", "Angular", "SQL"],
+    title: "Restaurant Reservations",
+    meta: "Personal project",
+    desc: "Web application to manage a restaurant's table reservations, with a Laravel back end and a React front end.",
+    tech: ["Laravel", "PHP", "React.js"],
+    link: "https://github.com/Zineb06/restaurant-reservations-app",
     // sample image: replace with a screenshot of the project UI
-    image: "/assets/projects/meetandgo.svg",
+    image: `${import.meta.env.BASE_URL}assets/projects/restaurant.svg`,
   },
   {
-    title: "Housing Comparison Platform",
-    meta: "Chronnocorp · 2025",
-    desc: "Compare housing using reviews and ratings from former tenants. JWT auth, unit and E2E tests, CI/CD.",
-    tech: ["FastAPI", "React.js", "JWT", "CI/CD"],
+    title: "Expense Tracker",
+    meta: "Personal project",
+    desc: "Full-stack app to record, categorize and review personal expenses, with a REST API and a PostgreSQL database.",
+    tech: ["Node.js", "React.js", "PostgreSQL"],
+    link: "https://github.com/Zineb06/expense-tracker-nodejs-reactjs",
     // sample image: replace with a screenshot of the project UI
-    image: "/assets/projects/housing.svg",
-  },
-  {
-    title: "Skin Cancer Classification (BDA)",
-    meta: "TIAD Lab research · 2024",
-    desc: "Bilevel optimization based on gradient descent aggregation (BDA) applied to skin cancer image classification.",
-    tech: ["Python", "Deep Learning", "Optimization"],
-    // sample image: replace with a screenshot of the project UI
-    image: "/assets/projects/skincancer.svg",
-  },
-  {
-    title: "School Management Admin",
-    meta: "HiziConnect · 2023",
-    desc: "Admin area of a school management app: RESTful APIs, secure authentication and role-based access control.",
-    tech: ["Java", "Angular", "REST", "RBAC"],
-    // sample image: replace with a screenshot of the project UI
-    image: "/assets/projects/school.svg",
+    image: `${import.meta.env.BASE_URL}assets/projects/expenses.svg`,
   },
 ];
 
@@ -150,7 +139,6 @@ const Projects = () => {
                       <div className="card-body">
                         <div className="card-header">
                           <div className="card-meta">{p.meta}</div>
-                          <ExternalLinks githubLink={p.link} openLink={p.open} />
                         </div>
                         <div className="card-title">{p.title}</div>
                         <div className="card-desc">{p.desc}</div>
@@ -159,6 +147,18 @@ const Projects = () => {
                             <li key={t}>{t}</li>
                           ))}
                         </ul>
+                        {p.link && (
+                          <a
+                            className="card-link"
+                            href={p.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            tabIndex={inView ? 0 : -1}
+                          >
+                            <GitHubIcon sx={{ fontSize: 18 }} />
+                            View project
+                          </a>
+                        )}
                       </div>
                     </div>
                   </li>

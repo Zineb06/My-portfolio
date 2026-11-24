@@ -119,3 +119,19 @@
     gap: 0;
   }
 }
+
+.edu-card-link {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.edu-card-link::after {
+  content: " \2197";
+  font-size: 0.85em;
+  color: var(--violet);
+}
+
+.edu-card-link:hover,
+.edu-card-link:focus-visible {
+  color: var(--violet);
+}

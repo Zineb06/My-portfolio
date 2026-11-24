@@ -280,3 +280,28 @@
     gap: 6px;
   }
 }
+
+/* "View project" link under the tech tags */
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin-top: 16px;
+  font-family: "NTR", sans-serif;
+  font-size: 16px;
+  color: var(--violet);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.card-link::after {
+  content: " \2192";
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  color: var(--lightest-slate);
+  border-bottom-color: currentColor;
+}

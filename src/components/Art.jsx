@@ -3,14 +3,13 @@ import "../styles/Art.css";
 import FadeInSection from "./FadeInSection";
 import { Link } from "react-router-dom";
 
-// Replace these with your own artwork (put the files in public/assets/art/)
 const topArt = [
-  { src: "/assets/art/fishy.jpg", title: "fish" },
-  { src: "/assets/art/dali.jpg", title: "dali" },
-  { src: "/assets/art/japan.jpg", title: "japan" },
-  { src: "/assets/art/space.jpg", title: "space" },
-  { src: "/assets/art/11th_grade.jpg", title: "11th grade" },
-  { src: "/assets/art/cordyceps.jpg", title: "cordyceps" },
+  { src: `${import.meta.env.BASE_URL}assets/art/sisters.jpg`, title: "sisters" },
+  { src: `${import.meta.env.BASE_URL}assets/art/wild-hair.jpg`, title: "wild hair" },
+  { src: `${import.meta.env.BASE_URL}assets/art/candlelight.jpg`, title: "candlelight" },
+  { src: `${import.meta.env.BASE_URL}assets/art/laugh.jpg`, title: "laugh" },
+  { src: `${import.meta.env.BASE_URL}assets/art/cat-butterflies.jpg`, title: "cat and butterflies" },
+  { src: `${import.meta.env.BASE_URL}assets/art/grimace.jpg`, title: "grimace" },
 ];
 
 // Each column floats at a slightly different speed while scrolling
