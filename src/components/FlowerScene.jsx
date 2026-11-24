@@ -43,22 +43,23 @@ const Grow = ({ d, children }) => (
 
 // Delays for each ground leaf cluster (long-g--0 … long-g--7)
 const LONG_G_DELAYS = [
-  ["3s", "2.2s", "3.4s", "3.6s"],
-  ["3.6s", "3.8s", "4s", "4.2s"],
-  ["4s", "4.2s", "4.4s", "4.6s"],
-  ["4s", "4.2s", "3s", "3.6s"],
-  ["4s", "4.2s", "3s", "3.6s"],
-  ["4s", "4.2s", "3s", "3.6s"],
-  ["4.2s", "4.4s", "4.6s", "4.8s"],
-  ["3s", "3.2s", "3.5s", "3.6s"],
+  ["1.05s", "0.77s", "1.19s", "1.26s"],
+  ["1.26s", "1.33s", "1.4s", "1.47s"],
+  ["1.4s", "1.47s", "1.54s", "1.61s"],
+  ["1.4s", "1.47s", "1.05s", "1.26s"],
+  ["1.4s", "1.47s", "1.05s", "1.26s"],
+  ["1.4s", "1.47s", "1.05s", "1.26s"],
+  ["1.47s", "1.54s", "1.61s", "1.68s"],
+  ["1.05s", "1.12s", "1.22s", "1.26s"],
 ];
 
 const FlowerScene = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 1000);
-    return () => clearTimeout(t);
+    // Start blooming on the first frame instead of holding the scene back
+    const raf = requestAnimationFrame(() => setLoaded(true));
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (
@@ -69,7 +70,7 @@ const FlowerScene = () => {
         <Flower n={2} stemLeaves={4} />
         <Flower n={3} stemLeaves={4} />
 
-        <Grow d="1.2s">
+        <Grow d="0.15s">
           <div className="flower__g-long">
             <div className="flower__g-long__top" />
             <div className="flower__g-long__bottom" />
@@ -79,18 +80,18 @@ const FlowerScene = () => {
         <Grass n={1} />
         <Grass n={2} />
 
-        <Grow d="2.4s">
+        <Grow d="0.29s">
           <div className="flower__g-right flower__g-right--1">
             <div className="leaf" />
           </div>
         </Grow>
-        <Grow d="2.8s">
+        <Grow d="0.34s">
           <div className="flower__g-right flower__g-right--2">
             <div className="leaf" />
           </div>
         </Grow>
 
-        <Grow d="2.8s">
+        <Grow d="0.34s">
           <div className="flower__g-front">
             {range(8).map((i) => (
               <div
@@ -104,7 +105,7 @@ const FlowerScene = () => {
           </div>
         </Grow>
 
-        <Grow d="3.2s">
+        <Grow d="0.39s">
           <div className="flower__g-fr">
             <div className="leaf" />
             {range(8).map((i) => (
