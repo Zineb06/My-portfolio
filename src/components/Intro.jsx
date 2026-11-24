@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/Intro.css";
-import { TypeAnimation } from "react-type-animation";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import FadeInSection from "./FadeInSection";
 import FlowerScene from "./FlowerScene";
@@ -15,12 +14,7 @@ const Intro = () => {
         <div className="intro-title">
           {"Hi, "}
           <span className="intro-name">
-            <TypeAnimation
-              sequence={["Zineb"]}
-              wrapper="span"
-              cursor={false}
-              repeat={0}
-            />
+            Zineb
           </span>
           {" here."}
           <span className="intro-cursor">|</span>
