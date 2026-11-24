@@ -9,6 +9,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-    port: 5173
+    port: 5173,
+    // Vercel sandbox/preview URLs (e.g. sb-xxxx.vercel.run) run the dev server
+    allowedHosts: ['.vercel.run', '.vercel.app']
+  },
+  preview: {
+    allowedHosts: ['.vercel.run', '.vercel.app']
   }
 })
