@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/FlowerScene.css";
 
 const range = (n) => Array.from({ length: n }, (_, i) => i + 1);
@@ -41,6 +41,9 @@ const Grow = ({ d, children }) => (
   </div>
 );
 
+// How much faster than the original the intro bloom plays
+const BLOOM_SPEED = 1.5;
+
 // Delays for each ground leaf cluster (long-g--0 … long-g--7)
 const LONG_G_DELAYS = [
   ["1.05s", "0.77s", "1.19s", "1.26s"],
@@ -56,14 +59,31 @@ const LONG_G_DELAYS = [
 const FlowerScene = () => {
   const [loaded, setLoaded] = useState(false);
 
+  const sceneRef = useRef(null);
+
   useEffect(() => {
     // Start blooming on the first frame instead of holding the scene back
     const raf = requestAnimationFrame(() => setLoaded(true));
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  useEffect(() => {
+    if (!loaded || !sceneRef.current?.getAnimations) return;
+    // Speed up the one-shot blooming (delays included) without touching
+    // the infinite swaying loops
+    sceneRef.current.getAnimations({ subtree: true }).forEach((anim) => {
+      if (anim.effect?.getTiming().iterations !== Infinity) {
+        anim.playbackRate = BLOOM_SPEED;
+      }
+    });
+  }, [loaded]);
+
   return (
-    <div className={`flower-scene${loaded ? "" : " not-loaded"}`} aria-hidden="true">
+    <div
+      ref={sceneRef}
+      className={`flower-scene${loaded ? "" : " not-loaded"}`}
+      aria-hidden="true"
+    >
       <div className="night" />
       <div className="flowers">
         <Flower n={1} stemLeaves={6} />
