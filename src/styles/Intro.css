@@ -62,7 +62,6 @@
   -webkit-text-fill-color: transparent;
   font-weight: bold;
   font-size: 80px;
-  filter: drop-shadow(0 0 18px rgba(177, 140, 255, 0.45));
   animation: name-flow 6s linear infinite;
 }
 
