@@ -61,9 +61,9 @@ const JobList = () => {
     },
     Chronnocorp: {
       jobTitle: "Fullstack Web Developer Intern @",
-      duration: "MAY 2025 - JUL 2025 · FULL REMOTE",
+      duration: "APR 2025 - AUG 2025 · FULL REMOTE",
       desc: [
-        "Built a fullstack application (FastAPI / React.js) to compare housing based on reviews and ratings from former tenants.",
+        "Built a fullstack application (Java / React.js) to compare housing based on reviews and ratings from former tenants.",
         "Set up secure JWT authentication, unit and end-to-end tests, and a CI/CD pipeline.",
       ],
     },
@@ -77,7 +77,7 @@ const JobList = () => {
     },
     HiziConnect: {
       jobTitle: "Web Developer Intern @",
-      duration: "JUN 2023 - SEP 2023 · FULL REMOTE",
+      duration: "MAY 2023 - SEP 2023 · FULL REMOTE",
       desc: [
         "Developed the admin area of a school management application (Java / Angular).",
         "Built RESTful APIs, secure authentication, role-based access control and automated tests.",
